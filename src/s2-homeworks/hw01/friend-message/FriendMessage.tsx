@@ -9,17 +9,17 @@ export type FriendMessagePropsType = {
 }
 
 
-const FriendMessage = (props: any) => {
+const FriendMessage = (props: FriendMessagePropsType ) => {
     return (
         <div
             id={'hw1-friend-message-' + props.message.id}
             className={s.friendMessage}
         >
             <div className={s.friendImageAndText}>
-                <img
+                <img src={s.avatar}
                     id={'hw1-friend-avatar-' + props.message.id}
                     // создаёт студент
-
+                    
                     //
                 />
                 <div className={s.friendText}>
@@ -28,7 +28,7 @@ const FriendMessage = (props: any) => {
                         className={s.friendName}
                     >
                         {/*создаёт студент*/}
-
+                        {s.friendName}
                         {/**/}
                     </div>
                     <pre
@@ -36,7 +36,7 @@ const FriendMessage = (props: any) => {
                         className={s.friendMessageText}
                     >
                         {/*создаёт студент*/}
-
+                        {s.friendMessageText}
                         {/**/}
                     </pre>
                 </div>
@@ -46,7 +46,7 @@ const FriendMessage = (props: any) => {
                 className={s.friendTime}
             >
                 {/*создаёт студент*/}
-
+                {s.friendTime}
                 {/**/}
             </div>
         </div>
