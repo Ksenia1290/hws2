@@ -5,6 +5,10 @@ import { MessageType } from '../HW1'
 // создать тип вместо any и отобразить приходящие данные
 // ВСЕ ТОЖЕ САМОЕ, ЧТО И В КОМПОНЕНТЕ Message -ПОЭТОМУ ПОДСКАЗОК МЕНЬШЕ
 export type FriendMessagePropsType = {
+    friendTime: string
+    friendMessageText: string
+    avatar: string 
+    friendName: string
     message:MessageType
 }
 
@@ -16,7 +20,7 @@ const FriendMessage = (props: FriendMessagePropsType ) => {
             className={s.friendMessage}
         >
             <div className={s.friendImageAndText}>
-                <img src={s.avatar}
+                <img src={props.avatar}
                     id={'hw1-friend-avatar-' + props.message.id}
                     // создаёт студент
                     
@@ -28,7 +32,7 @@ const FriendMessage = (props: FriendMessagePropsType ) => {
                         className={s.friendName}
                     >
                         {/*создаёт студент*/}
-                        {s.friendName}
+                        {props.friendName}
                         {/**/}
                     </div>
                     <pre
@@ -36,7 +40,7 @@ const FriendMessage = (props: FriendMessagePropsType ) => {
                         className={s.friendMessageText}
                     >
                         {/*создаёт студент*/}
-                        {s.friendMessageText}
+                        {props.friendMessageText}
                         {/**/}
                     </pre>
                 </div>
@@ -46,7 +50,7 @@ const FriendMessage = (props: FriendMessagePropsType ) => {
                 className={s.friendTime}
             >
                 {/*создаёт студент*/}
-                {s.friendTime}
+                {props.friendTime}
                 {/**/}
             </div>
         </div>

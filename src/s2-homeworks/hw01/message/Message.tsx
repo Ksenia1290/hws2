@@ -4,6 +4,10 @@ import { MessageType } from '../HW1'
 
 // нужно создать правильный тип вместо any
 export type MessagePropsType = {
+    time: string
+    messageText: string
+    name: string
+    avatar: string 
     message:MessageType
 }
 
@@ -13,25 +17,25 @@ const Message = (props: MessagePropsType) => {
         <div id={'hw1-message-' + props.message.id} className={s.message}>
             <div className={s.imageAndText}>
                 {/*создаёт студент*/}
-                <img src={s.avatar}
+                <img src={props.avatar}
                     id={'hw1-avatar-' + props.message.id}
                 />
                 <div className={s.text}>
                     <div id={'hw1-name-' + props.message.id} className={s.name}>
                         {/*создаёт студент*/}
-                        {s.name}
+                        {props.name}
                         {/**/}
                     </div>
                     <pre id={'hw1-text-' + props.message.id} className={s.messageText}>
                         {/*создаёт студент*/}
-                        {s.message}
+                        {props.messageText}
                         {/**/}
                     </pre>
                 </div>
             </div>
             <div id={'hw1-time-' + props.message.id} className={s.time}>
                 {/*создаёт студент*/}
-                {s.time}
+                {props.time}
                 {/**/}
             </div>
         </div>
