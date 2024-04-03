@@ -6,7 +6,7 @@ import FriendMessage from './friend-message/FriendMessage'
 import avatar from './avatar.png'
 
 /*
-* 1 - описать тип MessageType***********************
+* 1 - описать тип MessageType
 * 2 - описать тип MessagePropsType в файле Message.tsx
 * 3 - в файле Message.tsx отобразить приходящие данные
 * 4 - выполнить пункты 2, 3 в файле FriendMessage.tsx
@@ -14,13 +14,7 @@ import avatar from './avatar.png'
 * */
 
 // нужно создать правильный тип вместо any
-export type MessageType = {
-   
-    id: number,
-    user : {avatar: string,name: string},
-    message : {text: string,time: string}
-    }
-
+export type MessageType = any
 
 // структуру объекта не менять
 export const message0: MessageType = {
@@ -53,7 +47,7 @@ const HW1 = () => {
             <div className={s2.hw}>
                 {/*проверка отображения (не менять)*/}
                 <div>
-                    <Message message={message0} time={''} messageText={''} name={''} />
+                    <Message message={message0} />
                     <FriendMessage message={friendMessage0} />
                 </div>
 
