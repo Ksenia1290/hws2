@@ -1,6 +1,7 @@
 import React from 'react'
 import s from './Message.module.css'
 import { MessageType } from '../HW1'
+import { type } from 'os'
 
 // нужно создать правильный тип вместо any
 export type MessagePropsType = {
@@ -8,8 +9,9 @@ export type MessagePropsType = {
     messageText: string
     name: string
     avatar: string 
-    message:MessageType
+    
 }
+
 
 // нужно отобразить приходящие данные
 const Message = (props: MessagePropsType) => {
