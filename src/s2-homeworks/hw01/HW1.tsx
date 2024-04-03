@@ -23,7 +23,7 @@ export type MessageType = {
     message: {
         text: string, // можно менять
         time: string,
-}
+}}
 
 // структуру объекта не менять
 export const message0: MessageType = {
