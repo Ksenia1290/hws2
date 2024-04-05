@@ -5,11 +5,7 @@ import { MessageType } from '../HW1'
 // создать тип вместо any и отобразить приходящие данные
 // ВСЕ ТОЖЕ САМОЕ, ЧТО И В КОМПОНЕНТЕ Message -ПОЭТОМУ ПОДСКАЗОК МЕНЬШЕ
 export type FriendMessagePropsType = {
-    friendTime: string
-    friendMessageText: string
-    avatar: string 
-    friendName: string
-    message:MessageType
+    message: MessageType
 }
 
 

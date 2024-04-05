@@ -5,10 +5,7 @@ import { type } from 'os'
 
 // нужно создать правильный тип вместо any
 export type MessagePropsType = {
-    time: string
-    messageText: string
-    name: string
-    avatar: string 
+    message: MessageType 
     
 }
 
