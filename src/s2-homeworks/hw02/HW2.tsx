@@ -17,10 +17,10 @@ import s2 from '../../s1-main/App.module.css'
 * */
 
 // types
-export type AffairPriorityType = any // need to fix any
+export type AffairPriorityType = string // need to fix any
 export type AffairType = {
-    _id: any // need to fix any
-    name: any // need to fix any
+    _id: number // need to fix any
+    name: string // need to fix any
     priority: AffairPriorityType
 }
 export type FilterType = 'all' | AffairPriorityType
@@ -36,13 +36,15 @@ const defaultAffairs: any = [ // need to fix any
 
 // pure helper functions
 export const filterAffairs = (affairs: any, filter: any): any => { // need to fix any
-
+    //если пришел фильтр "all"...может нам вообще не фильтровать, а вернуть все?
+    //а вот если пришло другое значение...
 
     return affairs // need to fix
 }
 export const deleteAffair = (affairs: any, _id: any): any => { // need to fix any
-
-    return affairs // need to fix
+    // need to fix
+    // отбрасывай при помощи метода filter лишних affairs
+    return affairs
 }
 
 function HW2() {
@@ -52,6 +54,8 @@ function HW2() {
     const filteredAffairs = filterAffairs(affairs, filter)
     const deleteAffairCallback = (_id: any) => { // need to fix any
         // need to fix
+        // это просто функция стрелочник-она засетает, то что сделает deleteAffair
+        // setAffairs(вызываю функцию(передаю аргументы))
     }
 
     return (
@@ -60,9 +64,9 @@ function HW2() {
             <div className={s2.hw}>
                 <Affairs
                     data={filteredAffairs}
-                    setFilter={setFilter}
+                    filter={filter}          // ого useState передаем!
+                    setFilter={setFilter}    // ого useState передаем!
                     deleteAffairCallback={deleteAffairCallback}
-                    filter={filter}
                 />
             </div>
         </div>
