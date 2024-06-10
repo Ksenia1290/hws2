@@ -35,9 +35,9 @@ const defaultAffairs: AffairType[]  = [ // need to fix any
 ]
 
 // pure helper functions
-export const filterAffairs = (affairs: any, filter: any): any => { // need to fix any
-    //если пришел фильтр "all"...может нам вообще не фильтровать, а вернуть все?
-    //а вот если пришло другое значение...
+export const filterAffairs = (affairs: AffairType[], filter: FilterType): any => { // need to fix any
+    if(filter==='all') return affairs //если пришел фильтр "all"...может нам вообще не фильтровать, а вернуть все?
+    else return//а вот если пришло другое значение...
 
     return affairs // need to fix
 }
