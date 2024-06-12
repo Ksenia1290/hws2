@@ -43,19 +43,20 @@ export const filterAffairs = (affairs: AffairType[], filter: FilterType): Affair
 else{}
     return affairs // need to fix
 }
-export const deleteAffair = (affairs: any, _id: any): any => { // need to fix any
-    // need to fix
-    // отбрасывай при помощи метода filter лишних affairs
-    return affairs
-}
 //else return affairs.filter(a=>a.priority===filter)
 
+export const deleteAffair = (affairs: AffairType[], _id: number): AffairType[] => { // need to fix any
+    // need to fix
+   return affairs.filter(a=>a._id !== _id) // отбрасывай при помощи метода filter лишних affairs
+}
+
+
 function HW2() {
-    const [affairs, setAffairs] = useState<any>(defaultAffairs) // need to fix any
+    const [affairs, setAffairs] = useState<AffairType[]>(defaultAffairs) // need to fix any
     const [filter, setFilter] = useState<FilterType>('all')
 
     const filteredAffairs = filterAffairs(affairs, filter)
-    const deleteAffairCallback = (_id: any) => { // need to fix any
+    const deleteAffairCallback = (_id: number) => { // need to fix any
         // need to fix
         // это просто функция стрелочник-она засетает, то что сделает deleteAffair
         // setAffairs(вызываю функцию(передаю аргументы))
