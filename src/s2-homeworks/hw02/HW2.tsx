@@ -35,10 +35,12 @@ const defaultAffairs: AffairType[]  = [ // need to fix any
 ]
 
 // pure helper functions
-export const filterAffairs = (affairs: AffairType[], filter: FilterType): any => { // need to fix any
+export const filterAffairs = (affairs: AffairType[], filter: FilterType): AffairType[] => { // need to fix any
     if(filter==='all') return affairs //если пришел фильтр "all"...может нам вообще не фильтровать, а вернуть все?
-    else return//а вот если пришло другое значение...
-
+    else if (filter==='low')return affairs.filter(a=>a.priority==='low')
+    else if (filter==='middle')return affairs.filter(a=>a.priority==='middle')
+    else if (filter==='high')return affairs.filter(a=>a.priority==='high')//а вот если пришло другое значение...
+else{}
     return affairs // need to fix
 }
 export const deleteAffair = (affairs: any, _id: any): any => { // need to fix any
@@ -46,6 +48,7 @@ export const deleteAffair = (affairs: any, _id: any): any => { // need to fix an
     // отбрасывай при помощи метода filter лишних affairs
     return affairs
 }
+//else return affairs.filter(a=>a.priority===filter)
 
 function HW2() {
     const [affairs, setAffairs] = useState<any>(defaultAffairs) // need to fix any
