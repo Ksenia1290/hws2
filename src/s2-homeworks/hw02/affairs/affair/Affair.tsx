@@ -42,10 +42,10 @@ function Affair(props: AffairPropsType) {
             </div>
 
             <button
-                id={'hw2-button-delete-' + props.affair._id}
-                className={buttonClass}
+                //id={'hw2-button-delete-' + props.affair._id}
+               // className={buttonClass}
                 // need to fix
-                onClick={deleteCallback}//ОНКЛИК={ФУНКЦИЯ}
+                onClick={deleteCallback} className={s.item+''+ s.button}//ОНКЛИК={ФУНКЦИЯ}
             >
                 {/*текст кнопки могут изменить студенты*/}
                 X
