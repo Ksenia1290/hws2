@@ -12,17 +12,17 @@ type AffairsPropsType = {
 
 function Affairs(props: AffairsPropsType) {
     const setAll = () => {
-        // need to fix
+        props.setFilter('all')// need to fix
         //пропс.setFilter('all')
     }
     const setHigh = () => {
-        // need to fix
+        props.setFilter('high')// need to fix
     }
     const setMiddle = () => {
-        // need to fix
+        props.setFilter('middle')// need to fix
     }
     const setLow = () => {
-        // need to fix
+        props.setFilter('low')// need to fix
     }
 
     const cnAll = s.button + ' ' + s.all + (props.filter === 'all' ? ' ' + s.active : '')
