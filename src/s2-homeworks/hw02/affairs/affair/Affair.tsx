@@ -45,7 +45,7 @@ function Affair(props: AffairPropsType) {
                 id={'hw2-button-delete-' + props.affair._id}
                 className={buttonClass}
                 // need to fix
-                onClick={deleteCallback} //ОНКЛИК={ФУНКЦИЯ}
+                onClick={deleteCallback}  //ОНКЛИК={ФУНКЦИЯ}
             >
                 {/*текст кнопки могут изменить студенты*/}
                 X
