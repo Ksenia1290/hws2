@@ -32,12 +32,12 @@ function Affair(props: AffairPropsType) {
         >
             <div id={'hw2-name-' + props.affair._id} className={nameClass}>
                 {/*создаёт студент*/}
-                [{props.affair.name}]{/* ПРОПС.ВЫВОДИМ ИМЯ*/}
+                {props.affair.name}{/* ПРОПС.ВЫВОДИМ ИМЯ*/}
                 {/**/}
             </div>
             <div id={'hw2-priority-' + props.affair._id} hidden>
                 {/*создаёт студент*/}
-               [{props.affair.priority}]
+               {props.affair.priority}
                 {/**/}
             </div>
 
@@ -45,7 +45,7 @@ function Affair(props: AffairPropsType) {
                 id={'hw2-button-delete-' + props.affair._id}
                 className={buttonClass}
                 // need to fix
-                //ОНКЛИК={ФУНКЦИЯ}
+                onClick={()=>deleteCallback()} //ОНКЛИК={ФУНКЦИЯ}
             >
                 {/*текст кнопки могут изменить студенты*/}
                 X
