@@ -11,6 +11,14 @@ type AffairsPropsType = {
 }
 
 function Affairs(props: AffairsPropsType) {
+    const mappedAffairs = props.data.map((a: AffairType) => (
+        <Affair
+            key={a._id} // кеи ОБЯЗАТЕЛЬНЫ в 99% - так что лучше их писать всегда при создании компонент в мапе
+            affair={a}
+            deleteAffairCallback={props.deleteAffairCallback}
+        />
+    ))
+
     const setAll = () => {
         props.setFilter('all')// need to fix
         //пропс.setFilter('all')
@@ -25,12 +33,16 @@ function Affairs(props: AffairsPropsType) {
         props.setFilter('low')// need to fix
     }
 
+
+
     const cnAll = s.button + ' ' + s.all + (props.filter === 'all' ? ' ' + s.active : '')
     const cnHigh = s.button + ' ' + s.high + (props.filter === 'high' ? ' ' + s.active : '')
     const cnMiddle = s.button + ' ' + s.middle + (props.filter === 'middle' ? ' ' + s.active : '')
     const cnLow = s.button + ' ' + s.low + (props.filter === 'low' ? ' ' + s.active : '')
-   // const setClass=(filter:FilterType)=>{
-       // return s.button+(props.filter===filter?''+s.active:'') }
+   
+    const setClass=(filter:FilterType)=>{
+        return s.button+(props.filter===filter? ''+s.active:'')
+    }
 
     // создаем переменную=мапим наши данные (affairs)=>{
     // <вызываем компоненту <Affair в которую передаем глубже необходимые данные
@@ -38,18 +50,11 @@ function Affairs(props: AffairsPropsType) {
     // />}
     // получается, что мы мапим массив, но он не отрисовывается тут же, а погружается
     // глубже в компоненту <Affair/> где произойдет отрисовка
-    const mappedAffairs = props.data.map((a: AffairType) => (
-        <Affair
-            key={a._id} // кеи ОБЯЗАТЕЛЬНЫ в 99% - так что лучше их писать всегда при создании компонент в мапе
-            affair={a}
-            deleteAffairCallback={props.deleteAffairCallback}
-        />
-    ))
 
     return (
         <div>
             <div className={s.buttonContainer}>
-        
+        {mappedAffairs}
                 <button
                     id={'hw2-button-all'}
                     onClick={setAll}
