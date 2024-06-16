@@ -4,13 +4,39 @@ import {AffairType, FilterType} from '../HW2'
 import s from './Affairs.module.css'
 
 type AffairsPropsType = {
-    data: AffairType[] // need to fix any 
-    setFilter: (filter:FilterType)=>void  //(filter: FilterType) => void -запоминай, как типизируется useState
-    deleteAffairCallback: (id:number)=>void  //не забывай, что функция сюда приехала не пустой
+    data: any // need to fix any
+    setFilter: any  //(filter: FilterType) => void -запоминай, как типизируется useState
+    deleteAffairCallback: any  //не забывай, что функция сюда приехала не пустой
     filter: FilterType
 }
 
 function Affairs(props: AffairsPropsType) {
+    const setAll = () => {
+        // need to fix
+        //пропс.setFilter('all')
+    }
+    const setHigh = () => {
+        // need to fix
+    }
+    const setMiddle = () => {
+        // need to fix
+    }
+    const setLow = () => {
+        // need to fix
+    }
+
+    const cnAll = s.button + ' ' + s.all + (props.filter === 'all' ? ' ' + s.active : '')
+    const cnHigh = s.button + ' ' + s.high + (props.filter === 'high' ? ' ' + s.active : '')
+    const cnMiddle = s.button + ' ' + s.middle + (props.filter === 'middle' ? ' ' + s.active : '')
+    const cnLow = s.button + ' ' + s.low + (props.filter === 'low' ? ' ' + s.active : '')
+
+
+    // создаем переменную=мапим наши данные (affairs)=>{
+    // <вызываем компоненту <Affair в которую передаем глубже необходимые данные
+    // в том числе колбэк deleteAffairCallback
+    // />}
+    // получается, что мы мапим массив, но он не отрисовывается тут же, а погружается
+    // глубже в компоненту <Affair/> где произойдет отрисовка
     const mappedAffairs = props.data.map((a: AffairType) => (
         <Affair
             key={a._id} // кеи ОБЯЗАТЕЛЬНЫ в 99% - так что лучше их писать всегда при создании компонент в мапе
@@ -19,39 +45,9 @@ function Affairs(props: AffairsPropsType) {
         />
     ))
 
-    const setAll = () => {
-        props.setFilter('all')// need to fix
-        //пропс.setFilter('all')
-    }
-    const setHigh = () => {
-        props.setFilter('high')// need to fix
-    }
-    const setMiddle = () => {
-        props.setFilter('middle')// need to fix
-    }
-    const setLow = () => {
-        props.setFilter('low')// need to fix
-    }
-
-
-
-    const cnAll = s.button + ' ' + s.all + (props.filter === 'all' ? ' ' + s.active : '')
-    const cnHigh = s.button + ' ' + s.high + (props.filter === 'high' ? ' ' + s.active : '')
-    const cnMiddle = s.button + ' ' + s.middle + (props.filter === 'middle' ? ' ' + s.active : '')
-    const cnLow = s.button + ' ' + s.low + (props.filter === 'low' ? ' ' + s.active : '')
-   
-   
-    // создаем переменную=мапим наши данные (affairs)=>{
-    // <вызываем компоненту <Affair в которую передаем глубже необходимые данные
-    // в том числе колбэк deleteAffairCallback
-    // />}
-    // получается, что мы мапим массив, но он не отрисовывается тут же, а погружается
-    // глубже в компоненту <Affair/> где произойдет отрисовка
-
     return (
         <div>
             <div className={s.buttonContainer}>
-      
                 <button
                     id={'hw2-button-all'}
                     onClick={setAll}
