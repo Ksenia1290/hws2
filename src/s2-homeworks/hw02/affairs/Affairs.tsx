@@ -29,7 +29,8 @@ function Affairs(props: AffairsPropsType) {
     const cnHigh = s.button + ' ' + s.high + (props.filter === 'high' ? ' ' + s.active : '')
     const cnMiddle = s.button + ' ' + s.middle + (props.filter === 'middle' ? ' ' + s.active : '')
     const cnLow = s.button + ' ' + s.low + (props.filter === 'low' ? ' ' + s.active : '')
-
+   // const setClass=(filter:FilterType)=>{
+       // return s.button+(props.filter===filter?''+s.active:'') }
 
     // создаем переменную=мапим наши данные (affairs)=>{
     // <вызываем компоненту <Affair в которую передаем глубже необходимые данные
@@ -48,6 +49,7 @@ function Affairs(props: AffairsPropsType) {
     return (
         <div>
             <div className={s.buttonContainer}>
+        
                 <button
                     id={'hw2-button-all'}
                     onClick={setAll}
