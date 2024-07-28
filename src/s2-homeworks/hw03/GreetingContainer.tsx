@@ -17,10 +17,12 @@ export const pureAddUser = (name: string, setError: (error:string)=>void, setNam
         // если имя пустое - показать ошибку, иначе - добавить юзера и очистить инпут
 }
 
-export const pureOnBlur = (name: string, setError: any) => { // если имя пустое - показать ошибку
+export const pureOnBlur = (name: string, setError: (error:string)=>void) => { // если имя пустое - показать ошибку
+if(!name) setError('error');
 }
 
-export const pureOnEnter = (e: KeyboardEvent<HTMLInputElement>, addUser: any) => { // если нажата кнопка Enter - добавить
+export const pureOnEnter = (e: KeyboardEvent<HTMLInputElement>, addUser: ()=>void) => { // если нажата кнопка Enter - добавить
+if (e.key=='Enter') addUser();
 }
 
 // более простой и понятный для новичков
