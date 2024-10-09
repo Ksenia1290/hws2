@@ -15,6 +15,10 @@ export const pureAddUser = (name: string, setError: (error:string)=>void, setNam
         setName('')
     }    
         // если имя пустое - показать ошибку, иначе - добавить юзера и очистить инпут
+        // если имя пустое - показать ошибку: setError('Ошибка! Введите имя!'),
+    // иначе - добавить юзера при помощи addUserCallback и очистить инпут засетав ''
+    // проверить на пустоту можно при помощи метода trim(). К примеру: name.trim() !== ''
+    // ЕСЛИ НЕ БУДЕТ ПОЛУЧАТЬСЯ, НЕ РАССТРАИВАЙСЯ. НА ЧЕТВЕРТОМ ЗАНЯТИИ ПО ТУДУЛИСТУ НАУЧИМ), НО ВСЕ ТАКИ ПОПЫТАЙСЯ))
 }
 
 export const pureOnBlur = (name: string, setError: (error:string)=>void) => { // если имя пустое - показать ошибку
@@ -29,11 +33,7 @@ if (e.key=='Enter') addUser();
 // function GreetingContainer(props: GreetingPropsType) {
 
 // более современный и удобный для про :)
-const GreetingContainer: React.FC<GreetingContainerPropsType> = ({
-    users,
-    addUserCallback,
-}) => {
-    // деструктуризация пропсов
+const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, addUserCallback}) => {// деструктуризация пропсов
     const [name, setName] = useState<string>('') // need to fix any
     const [error, setError] = useState<string>('') // need to fix any
 
@@ -42,19 +42,25 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({
 
         error && setError('')
     }
+     // это всего лишь функция стрелочник- она всего лишь получает
+        //сигнал из компоненты <Greeting/> и вызывает pureAddUser (с кучей аргументов)
+        // ЗДЕСЬ НИЧЕГО ПИСАТЬ НЕ НУЖНО-ВСЕ ОК
     const addUser = () => {
         pureAddUser(name, setError, setName, addUserCallback)
     }
 
     const onBlur = () => {
+        // все тоже самое, что и в addUser -функция стрелочник
+        // всего лишь получает сигнали из компоненты <Greeting/> и вызывает pureOnBlur (с кучкой аргументов)
         pureOnBlur(name, setError)
     }
 
     const onEnter = (e: KeyboardEvent<HTMLInputElement> ) => {
+         // и здесь все тоже самое...)
         pureOnEnter(e, addUser)
     }
 
-  
+    
     const totalUsers = 0// need to fix
     const lastUserName = totalUsers > 0? users[0].name: "" // need to fix
     //const totalUsers = 0 // need to fix
